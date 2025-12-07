@@ -37,6 +37,27 @@ npm install
 
 # Run the demo
 npm start
+
+# Or run the interactive CLI
+npm run cli
+```
+
+### Running Examples
+
+The `examples/` directory contains several demonstration scripts:
+
+```bash
+# Basic marketplace usage
+node examples/basic-usage.js
+
+# Long-term auctions (up to 10 years)
+node examples/long-term-auctions.js
+
+# Rooster Cash transactions
+node examples/rooster-cash-transactions.js
+
+# Complete workflow demonstration
+node examples/complete-workflow.js
 ```
 
 ## 💰 How to Get Rooster Cash
