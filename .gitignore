@@ -24,6 +24,18 @@ wheels/
 .pytest_cache/
 .coverage
 htmlcov/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
 
 # IDE
 .vscode/
@@ -35,3 +47,71 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Output directories (examples and demos)
+output/
+*_output/
+cropped/
+descriptions/
+listings/
+temp/
+tmp/
+
+# User data
+my_*.json
+my_*/
+test_*/
+
+# Logs
+*.log
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Next.js
+.next/
+out/
+build
+dist
+
+# Production
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+.env*.local
+
+# Vercel
+.vercel
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+node_modules/
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.vscode/
+.idea/
+dist/
+build/
+tmp/
+*.tmp
