@@ -125,9 +125,8 @@ class RoosterMarketplace {
    */
   getStatistics() {
     const auctionStats = this.auctions.getStatistics();
-    const totalUsers = this.roosterCash.users.size;
-    const totalRoosterCash = Array.from(this.roosterCash.users.values())
-      .reduce((sum, wallet) => sum + wallet.balance, 0);
+    const totalUsers = this.roosterCash.getUserCount();
+    const totalRoosterCash = this.roosterCash.getTotalBalance();
 
     return {
       users: {

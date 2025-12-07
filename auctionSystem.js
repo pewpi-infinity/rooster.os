@@ -5,12 +5,15 @@
 
 const RoosterCashSystem = require('./roosterCash');
 
+// Maximum auction duration constant (10 years)
+const MAX_AUCTION_DURATION_MS = 10 * 365 * 24 * 60 * 60 * 1000;
+
 class AuctionSystem {
   constructor(roosterCashSystem) {
     this.roosterCash = roosterCashSystem;
     this.auctions = new Map(); // auctionId -> auction
     this.userAuctions = new Map(); // userId -> [auctionIds]
-    this.maxAuctionDuration = 10 * 365 * 24 * 60 * 60 * 1000; // 10 years in milliseconds
+    this.maxAuctionDuration = MAX_AUCTION_DURATION_MS;
   }
 
   /**
@@ -35,7 +38,7 @@ class AuctionSystem {
       throw new Error(`Duration must be between 0 and ${this.maxAuctionDuration}ms (10 years)`);
     }
 
-    const auctionId = `auction_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const auctionId = `auction_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`;
     const now = new Date();
     const endTime = new Date(now.getTime() + duration);
 
@@ -106,7 +109,7 @@ class AuctionSystem {
 
     // Create bid
     const bid = {
-      id: `bid_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      id: `bid_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
       bidderId,
       amount: bidAmount,
       timestamp: now

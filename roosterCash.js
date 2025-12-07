@@ -63,7 +63,7 @@ class RoosterCashSystem {
     wallet.balance += amount;
 
     const transaction = {
-      id: `txn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
       userId,
       type: 'purchase',
       amount,
@@ -101,7 +101,7 @@ class RoosterCashSystem {
     wallet.balance -= amount;
 
     const transaction = {
-      id: `txn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
       userId,
       type: 'sell',
       amount,
@@ -144,7 +144,7 @@ class RoosterCashSystem {
     toWallet.balance += amount;
 
     const transaction = {
-      id: `txn_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      id: `txn_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
       fromUserId,
       toUserId,
       type: 'transfer',
@@ -185,6 +185,23 @@ class RoosterCashSystem {
         '4. Once payment is confirmed, rooster cash will be added to your wallet'
       ]
     };
+  }
+
+  /**
+   * Get total number of users
+   * @returns {number} Total user count
+   */
+  getUserCount() {
+    return this.users.size;
+  }
+
+  /**
+   * Get total rooster cash in circulation
+   * @returns {number} Total balance across all users
+   */
+  getTotalBalance() {
+    return Array.from(this.users.values())
+      .reduce((sum, wallet) => sum + wallet.balance, 0);
   }
 }
 
