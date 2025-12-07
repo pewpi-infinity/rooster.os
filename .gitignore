@@ -16,6 +16,14 @@ parts/
 sdist/
 var/
 wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -35,6 +43,10 @@ env/
 *.swp
 *.swo
 *~
+
+# OS
+.DS_Store
+Thumbs.db
 .DS_Store
 
 # Testing
