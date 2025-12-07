@@ -13,6 +13,7 @@ This bot coordinates:
 import json
 import os
 import sys
+import re
 from pathlib import Path
 from typing import Optional, Dict, List
 import argparse
@@ -35,7 +36,7 @@ class AutopilotBot:
         
     def _load_config(self, config_path: Optional[str]) -> dict:
         """Load configuration from file or use defaults."""
-        default_config_path = Path(__file__).parent.parent.parent / 'config' / 'autopilot-config.json'
+        default_config_path = Path(__file__).parent.parent.parent.resolve() / 'config' / 'autopilot-config.json'
         
         if config_path and os.path.exists(config_path):
             config_file = config_path
@@ -137,17 +138,20 @@ class AutopilotBot:
         templates = self.config.get('title_generator', {}).get('templates', [])
         template = templates[0] if templates else "{year} {type} {denomination} {condition}"
         
-        # Fill template with available data
-        title = template.format(
-            year=info.get('year', '1921'),
-            type=info.get('type', 'Silver Coin'),
-            denomination=info.get('denomination', 'Dollar'),
-            condition=info.get('condition', 'Fine'),
-            mint_mark=info.get('mint_mark', '')
-        )
+        # Fill template with available data, using defaults for missing keys
+        try:
+            title = template.format(
+                year=info.get('year', '1921'),
+                type=info.get('type', 'Silver Coin'),
+                denomination=info.get('denomination', 'Dollar'),
+                condition=info.get('condition', 'Fine'),
+                mint_mark=info.get('mint_mark', '')
+            )
+        except KeyError:
+            # Fallback if template has unexpected placeholders
+            title = f"{info.get('year', '1921')} {info.get('type', 'Silver Coin')} {info.get('denomination', 'Dollar')}"
         
         # Clean up
-        import re
         title = re.sub(r'\s+', ' ', title).strip()
         
         max_length = self.config.get('title_generator', {}).get('max_length', 80)

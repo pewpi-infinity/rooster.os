@@ -106,7 +106,11 @@ class TitleGeneratorBot:
         template = templates[0] if templates else "{year} {type} {denomination} {condition}"
         
         # Generate title from template
-        title = template.format(**{k: info.get(k, '') for k in info.keys()})
+        try:
+            title = template.format(**info)
+        except KeyError as e:
+            # Fallback if template has missing keys
+            title = f"{info.get('year', '')} {info.get('type', '')} {info.get('denomination', '')} {info.get('condition', '')}"
         
         # Clean up multiple spaces
         title = re.sub(r'\s+', ' ', title).strip()
@@ -205,7 +209,12 @@ class TitleGeneratorBot:
             templates = self.config.get('templates', [])
             template = templates[0] if templates else "{year} {type} {denomination} {condition}"
             
-            title = template.format(**{k: metadata.get(k, '') for k in metadata.keys()})
+            try:
+                title = template.format(**metadata)
+            except KeyError as e:
+                # Fallback if template has missing keys
+                title = f"{metadata.get('year', '')} {metadata.get('type', '')} {metadata.get('denomination', '')}"
+            
             title = re.sub(r'\s+', ' ', title).strip()
             
             max_length = self.config.get('max_length', 80)

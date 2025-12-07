@@ -13,7 +13,7 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 import argparse
 from datetime import datetime
 
@@ -49,7 +49,7 @@ class DescriptionGeneratorBot:
             ]
         }
     
-    def analyze_item(self, image_path: str, metadata: Optional[Dict] = None) -> Dict[str, any]:
+    def analyze_item(self, image_path: str, metadata: Optional[Dict] = None) -> Dict[str, Any]:
         """
         Analyze item to extract detailed information.
         
