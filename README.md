@@ -799,3 +799,24 @@ For Rooster Cash purchases and support:
 ---
 
 🐓 **Happy Bidding with Rooster Marketplace!** 🐓
+
+---
+
+## 🧱 Research Notes (mixed)
+**Timestamp:** 2025-12-23T11:06:38Z
+
+### 🟨 Extracted Data
+- Repo files: 25
+- Code present: 8
+
+### 🩷 Investigative
+What is missing, blocked, or undefined.
+
+### 🟩 Engineering / Tools
+What advances this repo fastest.
+
+### 🟥 Routes Worth More
+Two next build paths with reasoning.
+
+### 🟧 Decisions
+Immediate next step and why.
