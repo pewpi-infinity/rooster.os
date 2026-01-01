@@ -19,7 +19,7 @@ const ChemistryTheme = {
       console.log(`🧪 Mixing ${compounds.join(' + ')}`);
       
       // Simple reactions
-      const reaction = this.determineReaction(compounds);
+      const reaction = ChemistryTheme.commands.determineReaction(compounds);
       
       return {
         action: 'mixCompounds',

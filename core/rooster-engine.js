@@ -144,8 +144,18 @@ class RoosterEngine {
     this.log(`Executing with ${spark.sparkEnergy} energy units`);
     
     try {
-      // Execute the code (simplified - in real implementation would use VM)
-      const result = typeof code === 'function' ? code() : eval(code);
+      // Execute the code - if it's a function, call it directly
+      // Note: In production, use a proper sandboxed VM instead of eval
+      let result;
+      if (typeof code === 'function') {
+        result = code();
+      } else if (typeof code === 'string') {
+        // For demo purposes only - do not use in production
+        result = Function('"use strict"; return (' + code + ')')();
+      } else {
+        result = code;
+      }
+      
       this.log('Execution successful');
       return {
         success: true,

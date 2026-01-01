@@ -93,15 +93,13 @@ class RoosterAPI:
     
     class Lab:
         """Lab equipment access"""
-        def __init__(self, api):
-            self._api = api
-        
         class Oscilloscope:
             def display(self):
                 print("📺 Oscilloscope display active")
                 return {'instrument': 'oscilloscope', 'active': True}
         
         def __init__(self, api):
+            self._api = api
             self.oscilloscope = self.Oscilloscope()
     
     class Workshop:
