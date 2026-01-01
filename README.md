@@ -1,4 +1,61 @@
-# rooster.os
+# 🐓 rooster.os
+
+**A Multi-Theme Scripting Platform with Marketplace & AI Intelligence**
+
+## 🌟 What's New: Multi-Theme Scripting System
+
+Rooster.os now includes a complete theme-aware scripting environment with:
+
+- ✅ **11 Integrated Themes**: Mario, Electronics, Chemistry, Robotics, Biology, Physics, Music, Art, Cooking, Sports, Space
+- ✅ **JavaScript & Python Support**: Dual-language scripting interface
+- ✅ **Character System**: Rooster 🐓, Mario 🍄, and Luigi 👻 interactions
+- ✅ **MRW Terminal**: Interactive command-line with character control
+- ✅ **Capacitor-Based Execution**: Energy-driven code execution
+- ✅ **Token Formula System**: Symbolic formula scripting (👑📶⚪, 🧲🪐🔁, etc.)
+
+### Quick Start with Multi-Theme System
+
+```bash
+# Run the multi-theme demo
+npm run demo
+
+# Launch interactive MRW terminal
+npm run terminal
+
+# Use in JavaScript
+const rooster = require('./api/js-api');
+rooster.mario.jump('high');
+rooster.electronics.generateSignal(440, 'sine');
+rooster.chemistry.mixCompounds(['H2', 'O2']);
+
+# Use in Python
+from api.python_bindings import rooster
+rooster.theme.switch("robotics")
+rooster.robotics.program_robot(['move', 'scan', 'grab'])
+```
+
+📖 **[Complete Multi-Theme Documentation](./MULTI_THEME_DOCS.md)**
+
+---
+
+## 📦 System Overview
+
+Rooster.os is a comprehensive platform that combines:
+
+1. **🎨 Multi-Theme Scripting** - 11 themed environments (Mario, Electronics, Chemistry, Robotics, Biology, Physics, Music, Art, Cooking, Sports, Space)
+2. **🐓 Character System** - Interactive rooster, Mario, and Luigi with actions and interactions
+3. **⚡ Capacitor Execution** - Energy-based code execution powered by rooster crows
+4. **✨ Token Formulas** - Symbolic formula scripting with emoji-based tokens
+5. **🚗 MRW Terminal** - Interactive command-line for character control
+6. **🪙 Token Management** - Token system with color, value, and datetime properties
+7. **🤖 Automation Bots** - Image processing, title generation, description creation
+8. **🛒 Marketplace** - Silver auction system with Rooster Cash virtual currency
+9. **🧠 AI Intelligence** - Authenticity verification and market analysis
+10. **⛓️ Blockchain** - NFT tokenization and asset tracking
+
+---
+
+## Token Management System
 
 A token management system for rooster.os.
 
@@ -116,6 +173,7 @@ A cutting-edge web application for buying and selling silver items with advanced
 ### Prerequisites
 - Node.js 18.x or higher
 - npm or yarn
+- Python 3.6+ (optional, for Python API)
 
 ### Installation
 
@@ -125,17 +183,33 @@ git clone https://github.com/pewpi-infinity/rooster.os.git
 cd rooster.os
 ```
 
-2. The scripts are ready to use with Python 3.6+
-
-### Basic Usage
-
-#### Process a Single Image
+2. Install dependencies:
 ```bash
-python scripts/autopilot_bot.py my_coin_photo.jpg output/
+npm install
 ```
 
-#### Batch Process Multiple Images (Autopilot Mode)
+### Available Commands
+
+#### Multi-Theme Scripting System
 ```bash
+npm run demo        # Run multi-theme demo with all 11 themes
+npm run terminal    # Launch interactive MRW terminal
+```
+
+#### Marketplace & Auction System
+```bash
+npm start           # Run marketplace demo
+npm run cli         # Interactive CLI for auctions
+npm run dev         # Next.js development server
+npm run build       # Build for production
+```
+
+#### Image Processing & Bots
+```bash
+# Process a Single Image
+python scripts/autopilot_bot.py my_coin_photo.jpg output/
+
+# Batch Process Multiple Images (Autopilot Mode)
 python scripts/autopilot_bot.py --batch input_photos/ output/
 ```
 
